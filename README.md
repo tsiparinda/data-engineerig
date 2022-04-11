@@ -1,2 +1,2 @@
 # data-engineerig
-All my information about dataengineering
+Information about my job and learning
