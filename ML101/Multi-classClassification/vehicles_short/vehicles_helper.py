@@ -1,3 +1,4 @@
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -29,7 +30,6 @@ def attributes_counts(dataset):
     """
     print("'Class' Value Counts: "+" \n", dataset['Class'].value_counts())
     print("\n Visualisation plot: "+" \n", dataset['Class'].value_counts().plot(x = dataset['Class'], kind='bar'))
-   
 
 
 def all_attrubutes_vizual(dataset, one, two, three):
@@ -59,7 +59,38 @@ def all_attrubutes_vizual(dataset, one, two, three):
     sns.pairplot(df3, kind="scatter",  hue="Class", plot_kws=dict(s=80, edgecolor="white", linewidth=2.5))
     plt.show()
     
+def all_attrubutes_vizual_short(dataset):
+    """ Visual presentation of all attributes in the dataset.
+    
+   This module shows all attributes divided into 3 parts
+   for better visualization.
    
+    Parameters:
+        dataset, 
+        one: selected attributes for part one
+        two: selected attributes for part two 
+        three: selected attributes for part three
+    """
+    # vizualisation of all attributes
+    one = ['Class', 'ELONGATEDNESS', 'SCALED_VARIANCE_MAJOR', 'SCALED_VARIANCE_MINOR', 'SCATTER_RATIO', 'PR.AXIS_RECTANGULARITY', 'HOLLOWS_RATIO']
+    two = ['Class', 'SCALED_RADIUS_OF_GYRATION', 'SKEWNESS_ABOUT_MAJOR', 'MAX.LENGTH_ASPECT_RATIO', 'CIRCULARITY', 'RADIUS_RATIO', 'SKEWNESS_ABOUT_MINOR']
+    three = ['Class', 'PR.AXIS_ASPECT_RATIO','KURTOSIS_ABOUT_MINOR','DISTANCE_CIRCULARITY','MAX.LENGTH_RECTANGULARITY','KURTOSIS_ABOUT_MAJOR','COMPACTNESS']
+
+    print("Part one:"+"\n")
+    df1 = dataset[one] 
+    sns.pairplot(df1, kind="scatter",  hue="Class", plot_kws=dict(s=80, edgecolor="white", linewidth=2.5))
+    plt.show()
+    print("\n")
+    print("Part two:"+"\n")
+    df2 = dataset[two] 
+    sns.pairplot(df2, kind="scatter",  hue="Class", plot_kws=dict(s=80, edgecolor="white", linewidth=2.5))
+    plt.show()
+    print("\n")
+    print("Part three:"+"\n")
+    df3 = dataset[three] 
+    sns.pairplot(df3, kind="scatter",  hue="Class", plot_kws=dict(s=80, edgecolor="white", linewidth=2.5))
+    plt.show()
+    
 def corr_plot_list(dataset): 
     """ This module presents correlation plot and list of each attribute"""
     
